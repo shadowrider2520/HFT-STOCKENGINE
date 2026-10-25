@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HFT Order Matching Engine</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>HFT ORDER MATCHING ENGINE</h1>
+  <span class="sub">Treap price ladder &middot; circular-queue levels &middot; price-time priority</span>
+  <div style="display:flex;align-items:center;gap:10px;margin-left:auto">
+    <span class="price-tag">reference <strong id="price">&ndash;</strong> <span id="priceSource"></span></span>
+    <span id="feedBadge" class="feed-badge sim">SIMULATED</span>
+  </div>
+</header>
+
+<main>
+
+  <section class="panel" style="grid-row:1/span 3">
+    <h2>Submit order</h2>
+    <label for="trader">Trader ID</label>
+    <input id="trader" value="T1" maxlength="20" pattern="[A-Za-z0-9_]{2,20}">
+
+    <label for="ticker">Ticker</label>
+    <input id="ticker" value="BTCUSDT" maxlength="20">
+
+    <label for="side">Side</label>
+    <select id="side">
+      <option value="BUY">BUY</option>
+      <option value="SELL">SELL</option>
+    </select>
+
+    <div class="row">
+      <div>
+        <label for="price-in">Price</label>
+        <input id="price-in" type="number" value="1200" min="1">
+      </div>
+      <div>
+        <label for="qty">Quantity</label>
+        <input id="qty" type="number" value="10" min="1">
+      </div>
+    </div>
+
+    <button id="submitBtn">Send order</button>
+    <div class="msg" id="orderMsg"></div>
+
+    <h2 style="margin-top:22px">Simulation</h2>
+    <div class="row">
+      <div>
+        <label for="simN">Orders</label>
+        <input id="simN" type="number" value="100000" min="1" max="1000000">
+      </div>
+      <div>
+        <label for="simMode">Mode</label>
+        <select id="simMode">
+          <option value="random">random</option>
+          <option value="sequential">sequential</option>
+        </select>
+      </div>
+    </div>
+    <button id="simBtn" class="secondary">Run simulation</button>
+    <div class="stats" id="simStats"></div>
+  </section>
+
+  <section class="panel">
+    <h2>Stats</h2>
+    <div class="tile-grid">
+      <div class="tile bid"><div class="label">Best Bid</div><div class="value" id="bestBid">-</div></div>
+      <div class="tile ask"><div class="label">Best Ask</div><div class="value" id="bestAsk">-</div></div>
+      <div class="tile spread"><div class="label">Spread</div><div class="value" id="spread">-</div></div>
+      <div class="tile"><div class="label">Last Price</div><div class="value" id="lastPrice">-</div></div>
+      <div class="tile"><div class="label">Volume</div><div class="value" id="volume">-</div></div>
+      <div class="tile"><div class="label">Trades</div><div class="value" id="tradeCount">-</div></div>
+      <div class="tile"><div class="label">Bid Treap Height</div><div class="value" id="bidHeight">-</div></div>
+      <div class="tile"><div class="label">Ask Treap Height</div><div class="value" id="askHeight">-</div></div>
+    </div>
+    <div class="counters">
+      <span>accepted <b id="cAccepted">0</b></span>
+      <span>rejected <b id="cRejected">0</b></span>
+      <span>trades <b id="cTrades">0</b></span>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Order book <span id="bookTicker" style="color:var(--accent)"></span></h2>
+    <div class="book-grid">
+      <div>
+        <table>
+          <thead><tr><th>Bid</th><th>Qty</th><th>Ord</th></tr></thead>
+          <tbody id="bids"></tbody>
+        </table>
+      </div>
+      <div>
+        <table>
+          <thead><tr><th>Ask</th><th>Qty</th><th>Ord</th></tr></thead>
+          <tbody id="asks"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel full-width">
+    <h2>Charts</h2>
+    <div class="charts-row">
+      <div class="chart-panel" id="priceChart"></div>
+      <div class="chart-panel" id="depthChart"></div>
+    </div>
+  </section>
+
+  <section class="panel full-width">
+    <h2>Treap View (Live Structure)</h2>
+    <div class="treap-view">
+      <div class="treap-panel" id="bidTreap"></div>
+      <div class="treap-panel" id="askTreap"></div>
+    </div>
+  </section>
+
+  <section class="panel" style="grid-row:2/span 2">
+    <h2>Trader Leaderboard</h2>
+    <div class="leaderboard" id="leaderboard"></div>
+  </section>
+
+  <section class="panel full-width">
+    <h2>Recent trades</h2>
+    <table>
+      <thead><tr><th>Time</th><th>Price</th><th>Qty</th><th>Buyer</th><th>Seller</th><th>Ticker</th></tr></thead>
+      <tbody id="trades"></tbody>
+    </table>
+  </section>
+
+  <section class="panel full-width">
+    <h2>Engine Event Timeline</h2>
+    <div class="controls">
+      <button id="pauseEvents" class="secondary">Pause</button>
+      <button id="clearEvents" class="secondary">Clear</button>
+      <span style="margin-left:auto;font-size:11px;color:var(--muted)">Filters:</span>
+      <span class="filter-chip active" data-type="NODE_INSERT">NODE_INSERT</span>
+      <span class="filter-chip active" data-type="NODE_DELETE">NODE_DELETE</span>
+      <span class="filter-chip active" data-type="ROTATE_LEFT">ROTATE_LEFT</span>
+      <span class="filter-chip active" data-type="ROTATE_RIGHT">ROTATE_RIGHT</span>
+      <span class="filter-chip active" data-type="ENQUEUE">ENQUEUE</span>
+      <span class="filter-chip active" data-type="DEQUEUE">DEQUEUE</span>
+      <span class="filter-chip active" data-type="ORDER_UPDATE">ORDER_UPDATE</span>
+      <span class="filter-chip active" data-type="TRADE">TRADE</span>
+      <span class="filter-chip active" data-type="REJECT">REJECT</span>
+    </div>
+    <div class="event-timeline" id="eventTimeline"></div>
+  </section>
+
+</main>
+
+<footer>
+  Prices are integer ticks. The reference price only centres simulated order flow; no order is ever
+  routed to a real market.
+</footer>
+
+<script src="charts.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>

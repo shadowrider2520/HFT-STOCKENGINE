@@ -1,0 +1,1372 @@
+Seeder: generating demo history...
+Seeder: done (385 trades generated)
+HFT matching engine listening on http://0.0.0.0:8080
+Serving static files from C:\Users\mithu\hft-engine\hft-engine\web
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=51167
+[DEBUG] handleCandles: matched trades=48040, candles=13
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=51167
+[DEBUG] handleCandles: matched trades=48040, candles=13
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60208
+[DEBUG] handleCandles: matched trades=57081, candles=14
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60209
+[DEBUG] handleCandles: matched trades=57082, candles=15
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60209
+[DEBUG] handleCandles: matched trades=57082, candles=15
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60211
+[DEBUG] handleCandles: matched trades=57084, candles=15
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60212
+[DEBUG] handleCandles: matched trades=57085, candles=16
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60214
+[DEBUG] handleCandles: matched trades=57087, candles=16
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60216
+[DEBUG] handleCandles: matched trades=57089, candles=16
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60217
+[DEBUG] handleCandles: matched trades=57090, candles=16
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60218
+[DEBUG] handleCandles: matched trades=57091, candles=16
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60220
+[DEBUG] handleCandles: matched trades=57093, candles=17
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60221
+[DEBUG] handleCandles: matched trades=57094, candles=17
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60228
+[DEBUG] handleCandles: matched trades=57101, candles=17
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60232
+[DEBUG] handleCandles: matched trades=57105, candles=17
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60232
+[DEBUG] handleCandles: matched trades=57105, candles=17
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60234
+[DEBUG] handleCandles: matched trades=57107, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60241
+[DEBUG] handleCandles: matched trades=57114, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60242
+[DEBUG] handleCandles: matched trades=57115, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60244
+[DEBUG] handleCandles: matched trades=57117, candles=18
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60245
+[DEBUG] handleCandles: matched trades=57118, candles=19
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60245
+[DEBUG] handleCandles: matched trades=57118, candles=19
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=57119, candles=19
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=57119, candles=19
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=57119, candles=19
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=57119, candles=19
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=57119, candles=19
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=57119, candles=19
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=57119, candles=19
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=57119, candles=19
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=57119, candles=19
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=57119, candles=19
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=57119, candles=19
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=57119, candles=19
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60246
+[DEBUG] handleCandles: matched trades=0, candles=0
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60248
+[DEBUG] handleCandles: matched trades=2, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUDDT, ticker=BTCUDDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=5, candles=2
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=57119, candles=19
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=57119, candles=19
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=57119, candles=19
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=57119, candles=19
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=57119, candles=19
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=57119, candles=19
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=57119, candles=19
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=57119, candles=19
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=57119, candles=19
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=57119, candles=19
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=57119, candles=19
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=57119, candles=19
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=57119, candles=19
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=57119, candles=19
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=57119, candles=19
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=60251
+[DEBUG] handleCandles: matched trades=57119, candles=19
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20
+[DEBUG] handleCandles: path=/api/candles/BTCUSDT, ticker=BTCUSDT
+[DEBUG] handleCandles: allTrades size=78227
+[DEBUG] handleCandles: matched trades=75095, candles=20

@@ -1,0 +1,6 @@
+out/
+*.class
+.DS_Store
+.idea/
+*.iml
+server.err
