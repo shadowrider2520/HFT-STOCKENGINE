@@ -50,8 +50,10 @@ public class TraderStats {
                 + ",\"boughtQty\":" + boughtQty
                 + ",\"soldQty\":" + soldQty
                 + ",\"netPosition\":" + getNetPosition()
-                + ",\"avgBuy\":" + String.format("%.2f", getAvgBuy())
-                + ",\"avgSell\":" + String.format("%.2f", getAvgSell())
+                // Locale.ROOT keeps the decimal point: a locale that formats
+                // 12.5 as "12,5" would otherwise emit invalid JSON.
+                + ",\"avgBuy\":" + String.format(java.util.Locale.ROOT, "%.2f", getAvgBuy())
+                + ",\"avgSell\":" + String.format(java.util.Locale.ROOT, "%.2f", getAvgSell())
                 + ",\"cashFlow\":" + getCashFlow()
                 + ",\"lastActive\":" + lastActive + "}";
     }
