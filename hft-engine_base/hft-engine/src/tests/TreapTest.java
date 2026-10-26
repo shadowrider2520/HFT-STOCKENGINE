@@ -38,6 +38,7 @@ public class TreapTest {
         testSizeAfterRemoves();
         testRemoveMissingPriceIsNoOp();
         testEmptyTreap();
+        testToJsonDepthBoundary();
         testLevelCapacityRejection();
 
         System.out.println();
@@ -288,6 +289,38 @@ public class TreapTest {
             }
         }
         return true;
+    }
+
+    /*
+     * Guards the shape of the JSON the live treap view consumes. The old writer
+     * skipped a child that was one level too deep but still printed the key, so
+     * the last visible level produced "left":,"right":} - invalid JSON that the
+     * browser silently failed to parse, and the SVG tree froze on old data.
+     * An empty ladder also returned an empty body instead of valid JSON.
+     * Complexity: O(n).
+     */
+    private static void testToJsonDepthBoundary() {
+        Treap empty = new Treap(SEED);
+        check("toJson: empty treap is null, not an empty body", "null".equals(empty.toJson(5)));
+
+        Treap treap = new Treap(SEED);
+        for (int price = 1; price <= 200; price++) {
+            treap.insert(buy(price));
+        }
+
+        boolean wellFormed = true;
+        for (int depth = 1; depth <= 6; depth++) {
+            String json = treap.toJson(depth);
+            if (json.isEmpty() || json.contains(":,") || json.contains(":}")) {
+                wellFormed = false;
+            }
+        }
+        check("toJson: depths 1..6 contain no empty value", wellFormed);
+        check("toJson: depth 1 has no nested child objects", !treap.toJson(1).contains("\"left\":{"));
+
+        String depth3 = treap.toJson(3);
+        int nodeCount = depth3.split("\"price\":", -1).length - 1;
+        check("toJson: depth 3 capped at 7 nodes", nodeCount > 0 && nodeCount <= 7);
     }
 
     /* Builds a throwaway buy order at the given price. Complexity: O(1). */
