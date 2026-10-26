@@ -107,14 +107,14 @@ public class MatchingController {
             Order sell = bestAsk.getQueue().peek();
 
             if (buy == null) {
+                // The Treap listener already emits NODE_DELETE for this removal;
+                // emitting here too duplicated every deletion in the timeline.
                 book.removeBidLevel(bestBid.getPrice());
-                emit(ticker, "BID", "NODE_DELETE", bestBid.getPrice(), "", "empty queue");
                 bestBid = book.bestBid();
                 continue;
             }
             if (sell == null) {
                 book.removeAskLevel(bestAsk.getPrice());
-                emit(ticker, "ASK", "NODE_DELETE", bestAsk.getPrice(), "", "empty queue");
                 bestAsk = book.bestAsk();
                 continue;
             }
@@ -123,20 +123,20 @@ public class MatchingController {
             recordTrade(ticker, buy, sell, qty);
 
             if (buy.isFilled()) {
-                bestBid.getQueue().dequeue();
+                Order filledBuy = bestBid.getQueue().dequeue();
+                emit(ticker, "BID", "DEQUEUE", bestBid.getPrice(), filledBuy.getTraderId(), "filled");
                 if (bestBid.getQueue().isEmpty()) {
                     book.removeBidLevel(bestBid.getPrice());
-                    emit(ticker, "BID", "NODE_DELETE", bestBid.getPrice(), "", "level emptied");
                     bestBid = book.bestBid();
                 } else {
                     emit(ticker, "BID", "ORDER_UPDATE", bestBid.getPrice(), buy.getTraderId(), "partial fill remaining=" + buy.getQuantity());
                 }
             }
             if (sell.isFilled()) {
-                bestAsk.getQueue().dequeue();
+                Order filledSell = bestAsk.getQueue().dequeue();
+                emit(ticker, "ASK", "DEQUEUE", bestAsk.getPrice(), filledSell.getTraderId(), "filled");
                 if (bestAsk.getQueue().isEmpty()) {
                     book.removeAskLevel(bestAsk.getPrice());
-                    emit(ticker, "ASK", "NODE_DELETE", bestAsk.getPrice(), "", "level emptied");
                     bestAsk = book.bestAsk();
                 } else {
                     emit(ticker, "ASK", "ORDER_UPDATE", bestAsk.getPrice(), sell.getTraderId(), "partial fill remaining=" + sell.getQuantity());
