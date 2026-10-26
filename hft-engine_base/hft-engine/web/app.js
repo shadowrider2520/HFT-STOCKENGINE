@@ -5,6 +5,7 @@ const App = (() => {
   let lastEventId = -1;
   let eventPollInterval;
   let eventPaused = false;
+  let activeEventTypes = new Set();
   let currentTicker = 'BTCUSDT';
   let traderName = '';
   let priceChartCtx, depthChartCtx;
@@ -14,6 +15,9 @@ const App = (() => {
 
   function init() {
     loadTraderName();
+    const initialTicker = ($('ticker')?.value || '').trim().toUpperCase();
+    if (initialTicker) currentTicker = initialTicker;
+    $('bookTicker').textContent = currentTicker;
     setupEventListeners();
     setupCharts();
     startPolling();
@@ -48,17 +52,24 @@ const App = (() => {
     const ticker = $('ticker');
     const submitBtn = $('submitBtn');
     const simBtn = $('simBtn');
-    const pauseEvents = $('pauseEvents');
-    const clearEvents = $('clearEvents');
+    const pauseBtn = $('pauseEvents');
+    const clearBtn = $('clearEvents');
     const filterChips = document.querySelectorAll('.filter-chip');
 
     if (trader) trader.addEventListener('change', e => saveTraderName(e.target.value.trim().toLowerCase()));
     if (ticker) ticker.addEventListener('change', e => {
-      currentTicker = e.target.value.trim().toUpperCase();
+      const next = e.target.value.trim().toUpperCase();
+      if (!next) {
+        // An empty ticker used to request /api/book/ and blank every panel.
+        e.target.value = currentTicker;
+        return;
+      }
+      currentTicker = next;
       $('bookTicker').textContent = currentTicker;
       refreshBook();
       refreshTrades();
       refreshPrice();
+      refreshTickerStats();
       refreshDepth();
       refreshTreap();
       refreshCandles();
@@ -66,11 +77,16 @@ const App = (() => {
 
     if (submitBtn) submitBtn.addEventListener('click', submitOrder);
     if (simBtn) simBtn.addEventListener('click', runSimulation);
-    if (pauseEvents) pauseEvents.addEventListener('click', toggleEventPause);
-    if (clearEvents) clearEvents.addEventListener('click', clearEvents);
+    if (pauseBtn) pauseBtn.addEventListener('click', toggleEventPause);
+    // The local binding was called clearEvents and shadowed the handler of the
+    // same name, so the listener registered the button element itself (a no-op).
+    if (clearBtn) clearBtn.addEventListener('click', clearEvents);
     if (filterChips) filterChips.forEach(chip => {
+      if (chip.classList.contains('active')) activeEventTypes.add(chip.dataset.type);
       chip.addEventListener('click', () => {
         chip.classList.toggle('active');
+        if (chip.classList.contains('active')) activeEventTypes.add(chip.dataset.type);
+        else activeEventTypes.delete(chip.dataset.type);
         filterEvents();
       });
     });
@@ -86,6 +102,7 @@ const App = (() => {
     refreshTrades();
     refreshPrice();
     refreshStats();
+    refreshTickerStats();
     refreshDepth();
     refreshTreap();
     refreshCandles();
@@ -96,6 +113,7 @@ const App = (() => {
       refreshTrades();
       refreshPrice();
       refreshStats();
+      refreshTickerStats();
       refreshDepth();
       refreshTreap();
       refreshCandles();
@@ -112,6 +130,7 @@ const App = (() => {
       refreshTrades(),
       refreshPrice(),
       refreshStats(),
+      refreshTickerStats(),
       refreshDepth(),
       refreshTreap(),
       refreshCandles(),
@@ -230,6 +249,19 @@ const App = (() => {
       .catch(() => {});
   }
 
+  function refreshTickerStats() {
+    return fetch(url('/api/stats/' + encodeURIComponent(currentTicker)))
+      .then(r => r.json())
+      .then(s => {
+        $('lastPrice').textContent = s.lastPrice > 0 ? Number(s.lastPrice).toLocaleString() : '-';
+        $('volume').textContent = Number(s.volume || 0).toLocaleString();
+        $('tradeCount').textContent = Number(s.trades || 0).toLocaleString();
+        $('bidHeight').textContent = s.bidTreapHeight;
+        $('askHeight').textContent = s.askTreapHeight;
+      })
+      .catch(() => {});
+  }
+
   function refreshDepth() {
     return fetch(url('/api/depth/' + encodeURIComponent(currentTicker)))
       .then(r => r.json())
@@ -239,25 +271,24 @@ const App = (() => {
       .catch(() => {});
   }
 
-  function refreshTreap() {
-    return Promise.all([
-      fetch(url('/api/treap/' + encodeURIComponent(currentTicker) + '/bids?depth=5')).then(r => r.json()),
-      fetch(url('/api/treap/' + encodeURIComponent(currentTicker) + '/asks?depth=5')).then(r => r.json())
-    ]).then(([bids, asks]) => {
-      const w = 400, h = 320;
-      $('bidTreap').innerHTML = Charts.treapSVG(bids, 'BID', 5, w, h);
-      $('askTreap').innerHTML = Charts.treapSVG(asks, 'ASK', 5, w, h);
-
-      const bidHeight = bids ? computeHeight(bids) : 0;
-      const askHeight = asks ? computeHeight(asks) : 0;
-      $('bidHeight').textContent = bidHeight;
-      $('askHeight').textContent = askHeight;
-    }).catch(() => {});
+  function safeJson(ticker, side) {
+    return fetch(url('/api/treap/' + encodeURIComponent(ticker) + '/' + side + '?depth=5'))
+      .then(r => (r.ok ? r.json() : null))
+      .catch(() => null);
   }
 
-  function computeHeight(node) {
-    if (!node) return 0;
-    return 1 + Math.max(computeHeight(node.left), computeHeight(node.right));
+  function refreshTreap() {
+    const w = Math.max(300, Math.floor($('bidTreap').clientWidth || 400));
+    const h = 320;
+    // Each side is fetched independently: one malformed/failed response used to
+    // reject the shared Promise.all and blank both trees.
+    return Promise.all([
+      safeJson(currentTicker, 'bids'),
+      safeJson(currentTicker, 'asks')
+    ]).then(([bids, asks]) => {
+      $('bidTreap').innerHTML = Charts.treapSVG(bids, 'BID', 5, w, h);
+      $('askTreap').innerHTML = Charts.treapSVG(asks, 'ASK', 5, w, h);
+    });
   }
 
   function refreshCandles() {
@@ -283,10 +314,10 @@ const App = (() => {
           return;
         }
         let html = '';
+        const maxPos = Math.max(...traders.map(x => Math.abs(x.netPosition))) || 1;
         traders.slice(0, 20).forEach((t, i) => {
           const net = t.netPosition;
           const isBuyer = net >= 0;
-          const maxPos = Math.max(...traders.map(x => Math.abs(x.netPosition))) || 1;
           const buyWidth = isBuyer ? (t.boughtQty / maxPos) * 100 : 0;
           const sellWidth = !isBuyer ? (t.soldQty / maxPos) * 100 : 0;
           html += `<div class="leaderboard-row ${isBuyer ? 'buyer' : 'seller'}">
@@ -322,39 +353,42 @@ const App = (() => {
     const row = document.createElement('div');
     row.className = 'event-row';
     const time = new Date(e.ts).toLocaleTimeString();
+    const type = e.type || '';
     row.innerHTML = `
       <span>${e.id}</span>
       <span>${time}</span>
       <span>${e.ticker || '-'}</span>
-      <span class="type type-${e.type}">${e.type.replace(/_/g, ' ')}</span>
+      <span class="type type-${type}">${type.replace(/_/g, ' ')}</span>
       <span>${e.price || '-'}</span>
       <span>${e.traderId || '-'}</span>
       <span>${escapeHtml(e.detail || '')}</span>
     `;
+    // New rows must respect the chips too; previously they were always shown.
+    if (activeEventTypes.size > 0 && !activeEventTypes.has(type)) row.style.display = 'none';
     container.insertBefore(row, container.firstChild);
     while (container.children.length > 200) container.removeChild(container.lastChild);
   }
 
   function filterEvents() {
-    const activeFilters = Array.from(document.querySelectorAll('.filter-chip.active')).map(c => c.dataset.type);
     document.querySelectorAll('.event-row').forEach(row => {
       const type = row.querySelector('.type').textContent.replace(/ /g, '_');
-      row.style.display = activeFilters.length === 0 || activeFilters.includes(type) ? 'grid' : 'none';
+      row.style.display = activeEventTypes.size === 0 || activeEventTypes.has(type) ? '' : 'none';
     });
   }
 
   function toggleEventPause() {
     eventPaused = !eventPaused;
-    const btn = $('#pauseEvents');
+    const btn = $('pauseEvents');
     if (btn) {
       btn.textContent = eventPaused ? 'Resume' : 'Pause';
-      btn.classList.toggle('secondary', eventPaused);
+      btn.classList.toggle('secondary', !eventPaused);
     }
   }
 
   function clearEvents() {
+    // Keep lastEventId so the cleared view does not refill with the same
+    // history on the next 500 ms poll; new events still stream in.
     $('eventTimeline').innerHTML = '';
-    lastEventId = -1;
   }
 
   function submitOrder() {
@@ -389,6 +423,7 @@ const App = (() => {
         refreshBook();
         refreshTrades();
         refreshStats();
+        refreshTickerStats();
         refreshDepth();
         refreshTreap();
       })
@@ -403,7 +438,7 @@ const App = (() => {
     const mode = $('simMode').value;
     const box = $('simStats');
     const btn = $('simBtn');
-    const pauseBtn = $('#pauseEvents');
+    const pauseBtn = $('pauseEvents');
 
     if (btn) btn.disabled = true;
     if (box) box.innerHTML = '<div>running ' + Number(n).toLocaleString() + ' orders...</div>';
@@ -428,6 +463,7 @@ const App = (() => {
         refreshBook();
         refreshTrades();
         refreshStats();
+        refreshTickerStats();
         refreshDepth();
         refreshTreap();
         refreshCandles();
@@ -437,11 +473,11 @@ const App = (() => {
       .finally(() => {
         if (btn) btn.disabled = false;
         eventPaused = false;
-        const pauseBtn = $('#pauseEvents');
         if (pauseBtn) {
           pauseBtn.textContent = 'Pause';
           pauseBtn.classList.remove('secondary');
         }
+        pollEvents();
       });
   }
 
