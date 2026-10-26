@@ -32,20 +32,23 @@ public class OrderBook {
 
     public OrderBook(String ticker, EventLog eventLog) {
         this.ticker = ticker;
-        this.bids = new Treap(System.nanoTime(), createListener(eventLog, "BID"));
-        this.asks = new Treap(System.nanoTime() + 1, createListener(eventLog, "ASK"));
+        this.bids = new Treap(System.nanoTime(), createListener(eventLog, "BID", ticker));
+        this.asks = new Treap(System.nanoTime() + 1, createListener(eventLog, "ASK", ticker));
     }
 
     public OrderBook(String ticker, long seed, EventLog eventLog) {
         this.ticker = ticker;
-        this.bids = new Treap(seed, createListener(eventLog, "BID"));
-        this.asks = new Treap(seed + 1, createListener(eventLog, "ASK"));
+        this.bids = new Treap(seed, createListener(eventLog, "BID", ticker));
+        this.asks = new Treap(seed + 1, createListener(eventLog, "ASK", ticker));
     }
 
-    private static Treap.Listener createListener(EventLog eventLog, String side) {
+    private static Treap.Listener createListener(EventLog eventLog, String side, String ticker) {
         if (eventLog == null) return null;
+        // The ticker is essential: the UI requests /api/events?ticker=X, and an
+        // event with a null ticker is filtered out, which is why structural
+        // events (NODE_INSERT, ROTATE_*) never reached the timeline.
         return (type, price, detail) -> {
-            eventLog.append(new EngineEvent(null, side, type, price, "", detail));
+            eventLog.append(new EngineEvent(ticker, side, type, price, "", detail));
         };
     }
 
