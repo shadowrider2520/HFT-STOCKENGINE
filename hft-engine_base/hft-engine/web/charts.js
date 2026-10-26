@@ -8,6 +8,7 @@ const Charts = (() => {
     volume: 'rgba(88, 166, 255, 0.3)',
     grid: '#2a2f3a',
     text: '#8b94a7',
+    muted: '#8b94a7',
     bg: '#0b0e11'
   };
 
@@ -236,54 +237,92 @@ const Charts = (() => {
   }
 
   function treapSVG(root, side, maxDepth, width, height) {
-    const nodeRadius = 20;
-    const levelGap = 50;
-    const horizontalGap = 30;
+    const color = side === 'BID' ? COLORS.bid : COLORS.ask;
+    const sideLabel = side === 'BID' ? 'bid' : 'ask';
 
-    const nodes = [];
-    function layout(node, depth, x, parentX) {
-      if (!node || depth >= maxDepth) return;
-      const y = 30 + depth * levelGap;
-      nodes.push({ ...node, x, y, depth });
-      const childOffset = horizontalGap * Math.pow(2, maxDepth - depth - 1);
-      if (node.left) layout(node.left, depth + 1, x - childOffset, x);
-      if (node.right) layout(node.right, depth + 1, x + childOffset, x);
+    if (!root) {
+      return emptyTreapSVG(sideLabel, color, width, height);
     }
 
-    layout(root, 0, width / 2, width / 2);
+    // Lay the tree out by in-order position (which, in a BST, is ascending
+    // price) instead of by depth offsets. The old formula placed children of the
+    // root at width/2 +/- 30*2^(maxDepth-1), i.e. hundreds of pixels outside the
+    // 400px viewBox, so most of the tree was simply clipped away.
+    const nodes = [];
+    let column = 0;
+    let deepest = 0;
 
-    let svg = `<svg viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">`;
+    function collect(node, depth) {
+      if (!node || depth >= maxDepth) return;
+      collect(node.left, depth + 1);
+      nodes.push({
+        price: node.price,
+        orders: node.orders,
+        qty: node.qty,
+        left: node.left,
+        right: node.right,
+        depth,
+        column: column++
+      });
+      if (depth > deepest) deepest = depth;
+      collect(node.right, depth + 1);
+    }
+    collect(root, 0);
 
-    const color = side === 'BID' ? COLORS.bid : COLORS.ask;
+    if (nodes.length === 0) {
+      return emptyTreapSVG(sideLabel, color, width, height);
+    }
+
+    const padX = 40;
+    const padTop = 44;
+    const yStep = 62;
+    const xStep = Math.min(84, Math.max(44, (width - padX * 2) / Math.max(1, nodes.length - 1)));
+    const treeWidth = (nodes.length - 1) * xStep;
+    const viewW = Math.max(width, treeWidth + padX * 2);
+    const viewH = Math.max(height, padTop + deepest * yStep + 52);
+    const startX = (viewW - treeWidth) / 2;
 
     nodes.forEach(n => {
-      if (n.left) {
-        const child = nodes.find(c => c.price === n.left.price && c.depth === n.depth + 1);
-        if (child) {
-          svg += `<line x1="${n.x}" y1="${n.y + nodeRadius}" x2="${child.x}" y2="${child.y - nodeRadius}" stroke="${color}" stroke-width="1.5" opacity="0.6"/>`;
-        }
-      }
-      if (n.right) {
-        const child = nodes.find(c => c.price === n.right.price && c.depth === n.depth + 1);
-        if (child) {
-          svg += `<line x1="${n.x}" y1="${n.y + nodeRadius}" x2="${child.x}" y2="${child.y - nodeRadius}" stroke="${color}" stroke-width="1.5" opacity="0.6"/>`;
-        }
-      }
+      n.x = startX + n.column * xStep;
+      n.y = padTop + n.depth * yStep;
+    });
+
+    const byPrice = new Map();
+    nodes.forEach(n => byPrice.set(n.price, n));
+
+    let svg = `<svg viewBox="0 0 ${viewW} ${viewH}" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${sideLabel} treap">`;
+    svg += `<text x="${padX / 2}" y="20" font-size="10" font-family="monospace" fill="${COLORS.muted}">${sideLabel.toUpperCase()} LADDER - ${nodes.length} node${nodes.length === 1 ? '' : 's'} shown - ${deepest + 1} levels deep</text>`;
+
+    nodes.forEach(n => {
+      [n.left, n.right].forEach(ref => {
+        if (!ref) return;
+        const child = byPrice.get(ref.price);
+        if (!child) return;
+        svg += `<line x1="${n.x}" y1="${n.y + 22}" x2="${child.x}" y2="${child.y - 22}" stroke="${color}" stroke-width="1.5" opacity="0.6"/>`;
+      });
     });
 
     nodes.forEach(n => {
-      const qtyScale = Math.min(1.5, 0.5 + Math.log10(n.qty + 1) * 0.2);
-      const r = Math.max(12, Math.min(30, nodeRadius * qtyScale));
-      const flashClass = n.flash ? 'flash' : '';
-      svg += `<g class="treap-node ${flashClass}" transform="translate(${n.x},${n.y})">
+      const qty = Number(n.qty) || 0;
+      const qtyScale = Math.min(1.5, 0.55 + Math.log10(qty + 1) * 0.18);
+      const r = Math.max(14, Math.min(28, 18 * qtyScale));
+      const orders = Number(n.orders) || 0;
+      svg += `<g class="treap-node" transform="translate(${n.x},${n.y})">
+        <title>price ${n.price} - ${orders} order${orders === 1 ? '' : 's'} - qty ${qty}</title>
         <circle r="${r}" fill="${color}" fill-opacity="0.2" stroke="${color}" stroke-width="2"/>
         <text y="4" text-anchor="middle" font-size="11" font-family="monospace" fill="${COLORS.text}" font-weight="bold">${n.price}</text>
-        <text y="18" text-anchor="middle" font-size="8" font-family="monospace" fill="${COLORS.muted}">${n.orders} ord</text>
+        <text y="18" text-anchor="middle" font-size="8" font-family="monospace" fill="${COLORS.muted}">${orders} ord</text>
       </g>`;
     });
 
     svg += '</svg>';
     return svg;
+  }
+
+  function emptyTreapSVG(sideLabel, color, width, height) {
+    return `<svg viewBox="0 0 ${width} ${height}" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="empty ${sideLabel} treap">
+      <text x="${width / 2}" y="${height / 2}" text-anchor="middle" font-size="11" font-family="monospace" fill="${COLORS.muted}">no resting ${sideLabel} levels</text>
+    </svg>`;
   }
 
   return {
