@@ -39,4 +39,4 @@ public class EventLog {
     public synchronized int size() {
         return count;
     }
-}
+} 
