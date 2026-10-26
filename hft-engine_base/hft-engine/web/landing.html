@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HFT Order Matching Engine — Price-time priority you can watch</title>
+<meta name="description" content="An in-memory exchange with a randomised Treap price ladder, circular-queue price levels, price-time priority and a live structural view. Java 17, no dependencies.">
+<style>
+  :root {
+    --bg: #0b0e11;
+    --panel: #12161b;
+    --panel-2: #181d24;
+    --line: #2a2f3a;
+    --text: #e8ebef;
+    --muted: #8b94a7;
+    --bid: #2563eb;
+    --ask: #ea580c;
+    --accent: #58a6ff;
+    --success: #22c55e;
+    --warning: #fbbf24;
+    --danger: #ef4444;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 14px/1.65 "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { width: min(1140px, calc(100% - 40px)); margin: 0 auto; }
+
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    backdrop-filter: blur(10px);
+    background: rgba(11, 14, 17, 0.86);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap { display: flex; align-items: center; gap: 16px; height: 58px; }
+  .brand { display: flex; align-items: center; gap: 9px; font-weight: 700; letter-spacing: 0.6px; font-size: 13px; color: var(--text); }
+  .brand:hover { text-decoration: none; }
+  .brand-mark {
+    width: 22px; height: 22px; border-radius: 4px;
+    background: linear-gradient(135deg, var(--bid), var(--ask));
+    box-shadow: 0 0 18px rgba(88, 166, 255, 0.35);
+  }
+  .nav-links { margin-left: auto; display: flex; align-items: center; gap: 18px; font-size: 12px; }
+  .nav-links a { color: var(--muted); }
+  .nav-links a:hover { color: var(--text); text-decoration: none; }
+  .status {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 10px; letter-spacing: 0.6px; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 999px;
+    border: 1px solid var(--line); color: var(--muted);
+  }
+  .status::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--muted); }
+  .status.live { color: var(--success); border-color: rgba(34, 197, 94, 0.35); background: rgba(34, 197, 94, 0.08); }
+  .status.live::before { background: var(--success); box-shadow: 0 0 8px var(--success); }
+  .status.offline { color: var(--warning); border-color: rgba(251, 191, 36, 0.35); background: rgba(251, 191, 36, 0.08); }
+  .status.offline::before { background: var(--warning); }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 10px 18px; border-radius: 6px;
+    font: inherit; font-size: 13px; font-weight: 700;
+    border: 1px solid var(--accent); background: var(--accent); color: #08111f;
+    transition: transform 0.12s ease, filter 0.12s ease;
+  }
+  .btn:hover { filter: brightness(1.08); transform: translateY(-1px); text-decoration: none; }
+  .btn.ghost { background: transparent; color: var(--text); border-color: var(--line); }
+  .btn.ghost:hover { border-color: var(--accent); }
+
+  header.hero { padding: 74px 0 58px; position: relative; overflow: hidden; }
+  header.hero::before {
+    content: "";
+    position: absolute; inset: -30% 30% auto -10%; height: 520px;
+    background: radial-gradient(closest-side, rgba(37, 99, 235, 0.22), transparent);
+    pointer-events: none;
+  }
+  header.hero::after {
+    content: "";
+    position: absolute; inset: -20% -10% auto 55%; height: 480px;
+    background: radial-gradient(closest-side, rgba(234, 88, 12, 0.16), transparent);
+    pointer-events: none;
+  }
+  .hero .wrap { position: relative; display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items: center; }
+  .eyebrow {
+    font-size: 10px; letter-spacing: 1.6px; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 16px;
+  }
+  h1 { font-size: clamp(30px, 5vw, 46px); line-height: 1.12; margin: 0 0 18px; letter-spacing: -0.6px; }
+  h1 .bid { color: var(--bid); }
+  h1 .ask { color: var(--ask); }
+  .lead { color: var(--muted); max-width: 54ch; margin: 0 0 26px; font-size: 14px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+  .hint { margin-top: 14px; font-size: 11px; color: var(--muted); }
+
+  .card {
+    background: linear-gradient(180deg, var(--panel-2), var(--panel));
+    border: 1px solid var(--line);
+    border-radius: 10px;
+  }
+  .pulse-card { padding: 16px; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35); }
+  .pulse-title {
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px;
+  }
+  .ref-price { font-size: 34px; font-weight: 700; letter-spacing: -1px; color: var(--accent); line-height: 1; }
+  .ref-source { font-size: 10px; color: var(--muted); margin: 6px 0 16px; min-height: 14px; }
+  .mini-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .mini { background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 9px 10px; }
+  .mini .k { font-size: 9px; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); }
+  .mini .v { font-size: 15px; font-weight: 700; margin-top: 3px; font-variant-numeric: tabular-nums; }
+  .mini.bid .v { color: var(--bid); }
+  .mini.ask .v { color: var(--ask); }
+  .mini.ok .v { color: var(--success); }
+
+  section { padding: 58px 0; border-top: 1px solid var(--line); }
+  .section-head { max-width: 62ch; margin-bottom: 28px; }
+  .section-head h2 { font-size: 20px; margin: 0 0 8px; letter-spacing: -0.2px; }
+  .section-head p { color: var(--muted); margin: 0; font-size: 13px; }
+  .kicker { font-size: 10px; letter-spacing: 1.6px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+
+  .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .feature { padding: 18px; }
+  .feature .num { font-size: 10px; color: var(--accent); letter-spacing: 1px; }
+  .feature h3 { font-size: 13px; margin: 10px 0 6px; }
+  .feature p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+  .tag {
+    font-size: 9px; letter-spacing: 0.4px; text-transform: uppercase;
+    color: var(--muted); border: 1px solid var(--line); border-radius: 3px; padding: 2px 6px;
+  }
+  .tag.bid { color: #93b4ff; border-color: rgba(37, 99, 235, 0.45); }
+  .tag.ask { color: #ffb07a; border-color: rgba(234, 88, 12, 0.45); }
+
+  .flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; align-items: stretch; }
+  .step { padding: 16px; position: relative; }
+  .step .label { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
+  .step h3 { font-size: 12px; margin: 8px 0 6px; }
+  .step p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.55; }
+  .step .arrow {
+    position: absolute; right: -8px; top: 50%; transform: translateY(-50%);
+    color: var(--muted); font-size: 12px; z-index: 1;
+  }
+  .step:last-child .arrow { display: none; }
+
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+  .complexity { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .complexity th {
+    text-align: left; font-size: 9px; text-transform: uppercase; letter-spacing: 0.7px;
+    color: var(--muted); padding: 7px 8px; border-bottom: 1px solid var(--line);
+  }
+  .complexity td { padding: 7px 8px; border-bottom: 1px solid var(--line); }
+  .complexity td:last-child { color: var(--accent); font-weight: 700; white-space: nowrap; }
+  .list { margin: 0; padding-left: 18px; color: var(--muted); font-size: 13px; }
+  .list li { margin-bottom: 9px; }
+  .list b { color: var(--text); }
+
+  .cta {
+    padding: 34px;
+    display: flex; align-items: center; justify-content: space-between; gap: 22px;
+    border: 1px solid var(--line); border-radius: 12px;
+    background:
+      radial-gradient(120% 160% at 0% 0%, rgba(37, 99, 235, 0.16), transparent 55%),
+      radial-gradient(120% 160% at 100% 100%, rgba(234, 88, 12, 0.14), transparent 55%),
+      var(--panel);
+  }
+  .cta h2 { margin: 0 0 6px; font-size: 19px; }
+  .cta p { margin: 0; color: var(--muted); font-size: 12px; }
+
+  footer { border-top: 1px solid var(--line); padding: 22px 0 34px; color: var(--muted); font-size: 11px; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; justify-content: space-between; }
+  footer .note { max-width: 70ch; }
+
+  @media (max-width: 960px) {
+    .hero .wrap { grid-template-columns: 1fr; gap: 30px; }
+    .features { grid-template-columns: 1fr 1fr; }
+    .flow { grid-template-columns: 1fr 1fr; }
+    .step .arrow { display: none; }
+    .split { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 620px) {
+    section { padding: 42px 0; }
+    header.hero { padding: 46px 0 38px; }
+    .features, .flow { grid-template-columns: 1fr; }
+    .cta { flex-direction: column; align-items: flex-start; }
+    .nav-links a:not(.btn) { display: none; }
+    .mini-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="brand-mark"></span> HFT MATCHING ENGINE</a>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#start">Run it</a>
+      <span id="apiStatus" class="status">checking api</span>
+      <a class="btn" href="index.html">Open terminal</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">In-memory exchange &middot; Java 17 &middot; zero dependencies</div>
+      <h1>Watch a matching engine <span class="bid">think</span>, <span class="ask">trade</span> and rebalance.</h1>
+      <p class="lead">
+        A limit-order-book exchange with strict price-time priority. Every price level is a
+        randomised Treap node holding a circular FIFO queue, and the live terminal shows the
+        tree rotate as orders arrive, fill and empty.
+      </p>
+      <div class="actions">
+        <a class="btn" href="index.html">Open the live terminal</a>
+        <a class="btn ghost" href="#architecture">See the architecture</a>
+      </div>
+      <div class="hint">No sign-up, no market data account, no order ever leaves the machine.</div>
+    </div>
+
+    <div class="card pulse-card">
+      <div class="pulse-title"><span>Engine pulse &middot; BTCUSDT</span><span id="pulseState">SNAPSHOT</span></div>
+      <div class="ref-price" id="pulsePrice">-</div>
+      <div class="ref-source" id="pulseSource">waiting for the engine</div>
+      <div class="mini-grid">
+        <div class="mini bid"><div class="k">Best bid</div><div class="v" id="pulseBid">-</div></div>
+        <div class="mini ask"><div class="k">Best ask</div><div class="v" id="pulseAsk">-</div></div>
+        <div class="mini"><div class="k">Spread</div><div class="v" id="pulseSpread">-</div></div>
+        <div class="mini"><div class="k">Accepted</div><div class="v" id="pulseAccepted">-</div></div>
+        <div class="mini ok"><div class="k">Trades</div><div class="v" id="pulseTrades">-</div></div>
+        <div class="mini"><div class="k">Rejected</div><div class="v" id="pulseRejected">-</div></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="features">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Why it is built this way</div>
+      <h2>Three data structures doing the work</h2>
+      <p>Each one is chosen for a specific question the matcher asks on every order. The result is expected O(log N) price discovery with O(1) time priority.</p>
+    </div>
+    <div class="features">
+      <article class="card feature">
+        <div class="num">01</div>
+        <h3>Treap price ladder</h3>
+        <p>A BST on price and a max-heap on a random priority at the same time. Insert, delete and find the best price stay expected O(log N) even when prices arrive strictly ascending — the exact input that turns a plain BST into a linked list.</p>
+        <div class="tag-row"><span class="tag bid">O(log N) insert</span><span class="tag bid">O(log N) best price</span></div>
+      </article>
+      <article class="card feature">
+        <div class="num">02</div>
+        <h3>Circular queue per level</h3>
+        <p>Time priority is strict FIFO, so each price level owns a ring buffer. The head advances on a fill instead of shifting the array, giving O(1) enqueue, dequeue and peek with no allocation on the hot path.</p>
+        <div class="tag-row"><span class="tag ask">FIFO</span><span class="tag ask">O(1) enqueue</span></div>
+      </article>
+      <article class="card feature">
+        <div class="num">03</div>
+        <h3>Price-time matching</h3>
+        <p>Best price first, earliest arrival first inside a price. Aggressors sweep as many levels as needed, print at the resting order's price, and leave any remainder at the front of its queue.</p>
+        <div class="tag-row"><span class="tag">partial fills</span><span class="tag">multi-level sweep</span></div>
+      </article>
+      <article class="card feature">
+        <div class="num">04</div>
+        <h3>Live structural event log</h3>
+        <p>NODE_INSERT, rotations, enqueues, dequeues, trades and rejections are recorded in a 5,000-event ring buffer and streamed to the terminal, so the tree you see is the tree the engine is using.</p>
+        <div class="tag-row"><span class="tag">/api/events</span><span class="tag">500 ms poll</span></div>
+      </article>
+      <article class="card feature">
+        <div class="num">05</div>
+        <h3>Reproducible benchmarks</h3>
+        <p>A seeded simulator runs one million orders in random or sequential mode, reports throughput, trades and both ladder heights, and compares the Treap against an unbalanced baseline.</p>
+        <div class="tag-row"><span class="tag">seeded</span><span class="tag">1M orders</span></div>
+      </article>
+      <article class="card feature">
+        <div class="num">06</div>
+        <h3>Persistence and history</h3>
+        <p>Trades are appended to CSV, reloaded on boot, and folded into candles and per-trader positions. A seeder fills an empty store so charts are never blank on first open.</p>
+        <div class="tag-row"><span class="tag">CSV append-only</span><span class="tag">restart-safe</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="architecture">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">The path of one order</div>
+      <h2>Gateway in, matched trade out</h2>
+      <p>One synchronized entry point mutates engine state, so the web thread pool can poll books and charts while orders are matched without seeing a half-updated book.</p>
+    </div>
+
+    <div class="flow">
+      <div class="card step">
+        <div class="label">Step 1</div>
+        <h3>OrderGateway</h3>
+        <p>Parses <code>trader,ticker,side,price,qty</code> or JSON, validates every field, and stamps the arrival time used for time priority.</p>
+        <span class="arrow">&rarr;</span>
+      </div>
+      <div class="card step">
+        <div class="label">Step 2</div>
+        <h3>MatchingController</h3>
+        <p>Picks the symbol's book, inserts the order, then matches while best bid &ge; best ask. This is the only mutating entry point.</p>
+        <span class="arrow">&rarr;</span>
+      </div>
+      <div class="card step">
+        <div class="label">Step 3</div>
+        <h3>OrderBook</h3>
+        <p>Two Treaps per symbol: bids searched from the right, asks from the left. The crossing test is two O(log N) lookups and one compare.</p>
+        <span class="arrow">&rarr;</span>
+      </div>
+      <div class="card step">
+        <div class="label">Step 4</div>
+        <h3>Trade tape + event log</h3>
+        <p>Executions land on a capped 10k tape and in CSV; structural changes stream to the UI timeline and the SVG tree view.</p>
+      </div>
+    </div>
+
+    <div class="split" style="margin-top:26px">
+      <div>
+        <h3 style="font-size:13px;margin:0 0 8px">Complexity, honestly stated</h3>
+        <table class="complexity">
+          <thead>
+            <tr><th>Operation</th><th>Structure</th><th>Cost</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Insert / delete level</td><td>Treap</td><td>O(log N) expected</td></tr>
+            <tr><td>Best bid / ask</td><td>Treap edge walk</td><td>O(log N) expected</td></tr>
+            <tr><td>Join an existing level</td><td>Treap find</td><td>O(log N) expected</td></tr>
+            <tr><td>Enqueue / dequeue</td><td>Circular queue</td><td>O(1)</td></tr>
+            <tr><td>Submit an order</td><td>Gateway + controller</td><td>O(log N) expected</td></tr>
+          </tbody>
+        </table>
+        <p style="color:var(--muted);font-size:11px;margin-top:10px">
+          The Treap bound is expected, not worst case. That is the deliberate trade: no height field,
+          no colour field, one rotation per level, and a vanishingly small chance of a pathological draw.
+        </p>
+      </div>
+      <div>
+        <h3 style="font-size:13px;margin:0 0 8px">What you can do in the terminal</h3>
+        <ul class="list">
+          <li><b>Submit a limit order</b> and watch it rest, cross, or sweep several levels.</li>
+          <li><b>Run a simulation</b> of up to one million seeded orders and read the throughput.</li>
+          <li><b>Inspect both ladders</b> as live SVG trees with per-node order counts.</li>
+          <li><b>Filter the event timeline</b> by structure operation to isolate rotations or fills.</li>
+          <li><b>Follow the depth and candles</b> for the selected symbol, refreshed every second.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="start">
+  <div class="wrap">
+    <div class="cta">
+      <div>
+        <h2>Run the exchange in one command</h2>
+        <p><code>javac -d out src/*.java src/tests/*.java &amp;&amp; java -cp out Main</code> &mdash; then open the terminal on port 8080.</p>
+      </div>
+      <div class="actions">
+        <a class="btn" href="index.html">Open the terminal</a>
+        <a class="btn ghost" href="/api/health" target="_blank" rel="noreferrer">Check API health</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="note">
+      Reference prices only centre simulated order flow; no order is ever routed to a real market.
+      This is an academic model of an exchange, not production trading software.
+    </span>
+    <span>Java 17 &middot; JDK HTTP server &middot; vanilla JS</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  const $ = id => document.getElementById(id);
+  const statusEl = $('apiStatus');
+  const stateEl = $('pulseState');
+  // Same optional cross-origin backend parameter the terminal understands, so
+  // the split Vercel/Render deployment works from this page too.
+  const API = (new URLSearchParams(location.search).get('api') || '').replace(/\/+$/, '');
+  const get = path => fetch(API + path);
+
+  if (API) {
+    document.querySelectorAll('a[href="index.html"]').forEach(a => {
+      a.href = 'index.html?api=' + encodeURIComponent(API);
+    });
+    const healthLink = document.querySelector('a[href="/api/health"]');
+    if (healthLink) healthLink.href = API + '/api/health';
+  }
+
+  function setStatus(kind, text) {
+    statusEl.className = 'status' + (kind ? ' ' + kind : '');
+    statusEl.textContent = text;
+  }
+
+  async function refresh() {
+    try {
+      const [health, stats, ticker, price] = await Promise.all([
+        get('/api/health'),
+        get('/api/stats'),
+        get('/api/stats/BTCUSDT'),
+        get('/api/price/BTCUSDT')
+      ]);
+      if (!health.ok || !stats.ok || !ticker.ok || !price.ok) throw new Error('api not ready');
+      const s = await stats.json();
+      const t = await ticker.json();
+      const p = await price.json();
+
+      setStatus('live', 'engine live');
+      stateEl.textContent = 'LIVE';
+      $('pulsePrice').textContent = p.price;
+      $('pulseSource').textContent = 'reference (' + p.source + ')';
+      $('pulseBid').textContent = t.bestBid == null ? '-' : t.bestBid;
+      $('pulseAsk').textContent = t.bestAsk == null ? '-' : t.bestAsk;
+      $('pulseSpread').textContent = t.spread == null ? '-' : t.spread;
+      $('pulseAccepted').textContent = Number(s.accepted).toLocaleString();
+      $('pulseTrades').textContent = Number(s.trades).toLocaleString();
+      $('pulseRejected').textContent = Number(s.rejected).toLocaleString();
+    } catch (e) {
+      setStatus('offline', 'api offline');
+      stateEl.textContent = 'NO API';
+      $('pulseSource').textContent = 'start the Java server to see the engine pulse';
+    }
+  }
+
+  refresh();
+  setInterval(refresh, 3000);
+})();
+</script>
+
+</body>
+</html>
