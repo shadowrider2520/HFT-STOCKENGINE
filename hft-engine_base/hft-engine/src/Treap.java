@@ -86,11 +86,9 @@ public class Treap {
     public boolean insert(Order order) {
         PriceNode existing = find(order.getPrice());
         if (existing != null) {
-            boolean result = existing.queue.enqueue(order);
-            if (result && listener != null) {
-                listener.onEvent("ENQUEUE", existing.price, "trader=" + order.getTraderId() + " qty=" + order.getQuantity());
-            }
-            return result;
+            // The controller emits the single ENQUEUE event for an accepted order;
+            // emitting here too would duplicate every row in the event timeline.
+            return existing.queue.enqueue(order);
         }
         PriceNode node = new PriceNode(order.getPrice(), random.nextInt());
         if (!node.queue.enqueue(order)) {
@@ -286,6 +284,9 @@ public class Treap {
     }
 
     public String toJson(int depth) {
+        if (root == null || depth <= 0) {
+            return "null";
+        }
         StringBuilder sb = new StringBuilder();
         toJsonNode(sb, root, depth, 0);
         return sb.toString();
@@ -298,14 +299,18 @@ public class Treap {
         sb.append(",\"priority\":").append(node.priority);
         sb.append(",\"orders\":").append(node.orderCount());
         sb.append(",\"qty\":").append(node.totalQuantity());
-        if (node.left != null || node.right != null) {
-            sb.append(",\"left\":");
-            if (node.left != null) toJsonNode(sb, node.left, maxDepth, currentDepth + 1);
-            else sb.append("null");
-            sb.append(",\"right\":");
-            if (node.right != null) toJsonNode(sb, node.right, maxDepth, currentDepth + 1);
-            else sb.append("null");
-        }
+
+        // Children beyond maxDepth must be written as null, not skipped: printing
+        // "left": with nothing after it produced invalid JSON ("left":,"right":})
+        // for any node on the last visible level, which made the browser's
+        // response.json() reject and silently froze the live treap view.
+        boolean canDescend = currentDepth + 1 < maxDepth;
+        sb.append(",\"left\":");
+        if (canDescend && node.left != null) toJsonNode(sb, node.left, maxDepth, currentDepth + 1);
+        else sb.append("null");
+        sb.append(",\"right\":");
+        if (canDescend && node.right != null) toJsonNode(sb, node.right, maxDepth, currentDepth + 1);
+        else sb.append("null");
         sb.append("}");
     }
 }
