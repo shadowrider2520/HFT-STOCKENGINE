@@ -33,6 +33,9 @@ public class TradeStore {
     private final List<OrderRecord> allOrders = new ArrayList<>();
     private final List<OrderRecord> orderBuffer = new ArrayList<>();
     private final Map<String, TraderStats> traderStats = new ConcurrentHashMap<>();
+    // Lifetime aggregates per symbol, maintained on the write path so the
+    // ticker stats endpoint does not have to rescan the whole tape on every poll.
+    private final Map<String, TickerTotals> tickerTotals = new ConcurrentHashMap<>();
 
     private final ScheduledExecutorService flusher = Executors.newSingleThreadScheduledExecutor();
     private volatile boolean closed = false;
@@ -71,6 +74,7 @@ public class TradeStore {
                         int qty = Integer.parseInt(p[5]);
                         TradeRecord record = new TradeRecord(ts, ticker, buyer, seller, price, qty);
                         allTrades.add(record);
+                        indexTicker(ticker, price, qty);
                     } catch (NumberFormatException ignored) {}
                 }
             }
@@ -121,8 +125,23 @@ public class TradeStore {
                 trade.getBuyerId(), trade.getSellerId(), trade.getPrice(), trade.getQuantity());
         allTrades.add(record);
         tradeBuffer.add(record);
+        indexTicker(trade.getTicker(), trade.getPrice(), trade.getQuantity());
         updateStats(trade.getBuyerId(), trade.getTicker(), true, trade.getPrice(), trade.getQuantity(), trade.getTimestamp());
         updateStats(trade.getSellerId(), trade.getTicker(), false, trade.getPrice(), trade.getQuantity(), trade.getTimestamp());
+    }
+
+    private void indexTicker(String ticker, int price, int qty) {
+        if (ticker == null) return;
+        String key = ticker.toUpperCase();
+        tickerTotals.compute(key, (k, previous) -> previous == null
+                ? new TickerTotals(qty, 1, price)
+                : new TickerTotals(previous.volume + qty, previous.trades + 1, price));
+    }
+
+    /** Lifetime volume, trade count and latest price for one symbol. Never null. */
+    public TickerTotals getTickerTotals(String ticker) {
+        TickerTotals totals = ticker == null ? null : tickerTotals.get(ticker.toUpperCase());
+        return totals == null ? new TickerTotals(0, 0, 0) : totals;
     }
 
     public synchronized void recordOrder(Order order) {
@@ -150,6 +169,10 @@ public class TradeStore {
 
     public synchronized void flush() {
         if (closed) return;
+        writeBuffers();
+    }
+
+    private void writeBuffers() {
         try (BufferedWriter tw = new BufferedWriter(new FileWriter(TRADES_CSV.toFile(), true));
              BufferedWriter ow = new BufferedWriter(new FileWriter(ORDERS_CSV.toFile(), true))) {
             for (TradeRecord t : tradeBuffer) {
@@ -167,11 +190,16 @@ public class TradeStore {
         }
     }
 
-    public void close() {
+    /*
+     * Flushes before marking the store closed. The old order set closed = true
+     * first, so the final flush returned immediately and everything buffered
+     * since the last one-second tick was lost on shutdown.
+     */
+    public synchronized void close() {
         if (closed) return;
         closed = true;
         flusher.shutdownNow();
-        flush();
+        writeBuffers();
     }
 
     public static class TradeRecord {
@@ -184,6 +212,18 @@ public class TradeStore {
 
         public TradeRecord(long ts, String ticker, String buyer, String seller, int price, int qty) {
             this.ts = ts; this.ticker = ticker; this.buyer = buyer; this.seller = seller; this.price = price; this.qty = qty;
+        }
+    }
+
+    public static final class TickerTotals {
+        public final long volume;
+        public final int trades;
+        public final long lastPrice;
+
+        TickerTotals(long volume, int trades, long lastPrice) {
+            this.volume = volume;
+            this.trades = trades;
+            this.lastPrice = lastPrice;
         }
     }
 
