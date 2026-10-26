@@ -59,6 +59,9 @@ public class WebServer {
     private final Path webRoot;
     private final int port;
     private final Object simulationLock = new Object();
+    private long rateSampleMs = System.currentTimeMillis();
+    private long rateSampleAccepted = 0;
+    private double currentOrdersPerSecond = 0;
     private HttpServer server;
     private ExecutorService executor;
 
@@ -237,7 +240,14 @@ public class WebServer {
         synchronized (simulationLock) {
             OrderSimulator simulator = new OrderSimulator(
                     OrderSimulator.DEFAULT_SEED, n, feeder, mode, ticker);
-            simulator.run(gateway);
+            try {
+                simulator.run(gateway);
+            } catch (IllegalArgumentException e) {
+                // An invalid ?ticker= makes the first generated order fail in the
+                // gateway; without this the exception escaped and killed the request.
+                sendJson(exchange, 400, "{\"error\":\"" + escape(e.getMessage()) + "\"}");
+                return;
+            }
             stats = simulator.getStats();
         }
         sendJson(exchange, 200, stats.toJson());
@@ -270,7 +280,16 @@ public class WebServer {
     private void handleEvents(HttpExchange exchange) throws IOException {
         if (handledPreflight(exchange)) return;
         Map<String, String> query = parseQuery(exchange.getRequestURI().getRawQuery());
-        long since = query.containsKey("since") ? Long.parseLong(query.get("since")) : -1;
+        long since = -1;
+        if (query.containsKey("since")) {
+            try {
+                since = Long.parseLong(query.get("since").trim());
+            } catch (NumberFormatException e) {
+                // Uncaught, this escaped the handler and closed the connection.
+                sendJson(exchange, 400, "{\"error\":\"since must be a whole number\"}");
+                return;
+            }
+        }
         String ticker = query.getOrDefault("ticker", "");
         int max = clamp(intParam(query, "max", 200), 1, 500);
 
@@ -294,12 +313,17 @@ public class WebServer {
         }
         String rest = path.substring(prefix.length());
         String[] parts = rest.split("/");
-        if (parts.length < 2) {
+        if (parts.length < 2 || parts[0].isEmpty()) {
             sendJson(exchange, 400, "{\"error\":\"usage /api/treap/{ticker}/{bids|asks}\"}");
             return;
         }
         String ticker = parts[0].toUpperCase();
         String side = parts[1].toUpperCase();
+        if (!"BIDS".equals(side) && !"ASKS".equals(side)) {
+            // Previously any typo silently returned the ask ladder.
+            sendJson(exchange, 400, "{\"error\":\"side must be bids or asks\"}");
+            return;
+        }
         Map<String, String> query = parseQuery(exchange.getRequestURI().getRawQuery());
         int depth = clamp(intParam(query, "depth", 5), 1, 20);
 
@@ -326,35 +350,34 @@ public class WebServer {
             return;
         }
 
-        OrderBook book = controller.getOrCreateBook(ticker);
-        PriceNode bestBid = book.bestBid();
-        PriceNode bestAsk = book.bestAsk();
+        PriceNode bestBid;
+        PriceNode bestAsk;
+        int bidHeight;
+        int askHeight;
+        synchronized (controller) {
+            OrderBook book = controller.getOrCreateBook(ticker);
+            bestBid = book.bestBid();
+            bestAsk = book.bestAsk();
+            bidHeight = book.getBids().height();
+            askHeight = book.getAsks().height();
+        }
         int spread = (bestBid != null && bestAsk != null) ? bestAsk.getPrice() - bestBid.getPrice() : 0;
-        long lastPrice = 0;
-        long volume = 0;
-        List<Trade> recent = controller.getTrades(100);
-        for (Trade t : recent) {
-            if (t.getTicker().equalsIgnoreCase(ticker)) {
-                lastPrice = t.getPrice();
-                volume += t.getQuantity();
-            }
-        }
 
-        Map<String, TraderStats> allStats = tradeStore.getAllTraderStats();
-        int tickerTrades = 0;
-        for (Trade t : recent) {
-            if (t.getTicker().equalsIgnoreCase(ticker)) tickerTrades++;
-        }
+        // Lifetime figures from the store. The old code summed the last 100
+        // trades only, so "volume" fell whenever older trades scrolled out of
+        // the window, and "lastPrice" ended up being the OLDEST match because
+        // the tape is iterated newest first.
+        TradeStore.TickerTotals totals = tradeStore.getTickerTotals(ticker);
 
         String json = "{\"ticker\":\"" + escape(ticker) + "\""
                 + ",\"bestBid\":" + (bestBid != null ? bestBid.getPrice() : "null")
                 + ",\"bestAsk\":" + (bestAsk != null ? bestAsk.getPrice() : "null")
                 + ",\"spread\":" + spread
-                + ",\"lastPrice\":" + lastPrice
-                + ",\"volume\":" + volume
-                + ",\"trades\":" + tickerTrades
-                + ",\"bidTreapHeight\":" + book.getBids().height()
-                + ",\"askTreapHeight\":" + book.getAsks().height()
+                + ",\"lastPrice\":" + totals.lastPrice
+                + ",\"volume\":" + totals.volume
+                + ",\"trades\":" + totals.trades
+                + ",\"bidTreapHeight\":" + bidHeight
+                + ",\"askTreapHeight\":" + askHeight
                 + ",\"accepted\":" + controller.getAcceptedCount()
                 + ",\"rejected\":" + controller.getRejectedCount()
                 + ",\"ordersPerSec\":" + Math.round(getOrdersPerSecond())
@@ -362,9 +385,20 @@ public class WebServer {
         sendJson(exchange, 200, json);
     }
 
-    private double getOrdersPerSecond() {
-        // Approximate from total trades and accepted
-        return controller.getAcceptedCount() > 0 ? 1000.0 : 0;
+    /*
+     * Accepted orders per second over the last sampling window. The endpoint
+     * used to return a hard-coded 1000, which was not a measurement at all.
+     */
+    private synchronized double getOrdersPerSecond() {
+        long now = System.currentTimeMillis();
+        long elapsed = now - rateSampleMs;
+        if (elapsed >= 1000) {
+            long accepted = controller.getAcceptedCount();
+            currentOrdersPerSecond = (accepted - rateSampleAccepted) * 1000.0 / elapsed;
+            rateSampleAccepted = accepted;
+            rateSampleMs = now;
+        }
+        return currentOrdersPerSecond;
     }
 
     private void handleCandles(HttpExchange exchange) throws IOException {
