@@ -51,6 +51,17 @@ header .sub { color: var(--muted); font-size: 11px; }
 .feed-badge.live { background: #052e16; color: var(--success); }
 .feed-badge.sim { background: #3f1d1d; color: var(--warning); }
 
+.top-link {
+  font-size: 11px;
+  color: var(--accent);
+  text-decoration: none;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 3px 8px;
+  white-space: nowrap;
+}
+.top-link:hover { border-color: var(--accent); }
+
 main {
   display: grid;
   grid-template-columns: 300px 1fr 1fr;
